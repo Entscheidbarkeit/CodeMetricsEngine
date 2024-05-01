@@ -1,0 +1,348 @@
+[getValue]  of class "CyclomaticComplexity" in File "Testsfile\src\CodeComplexity\CyclomaticComplexity.java" : 12
+with Complexity of: 144.86478113187096
+with CC of: 1
+with HV of: 4.754887502163469
+with LoC of: 3 with position of 12
+
+[visitBinary]  of class "Scanner" in File "Testsfile\src\CodeComplexity\CyclomaticComplexity.java" : 17
+with Complexity of: 114.01377177028883
+with CC of: 3
+with HV of: 117.20671786825557
+with LoC of: 7 with position of 17
+
+[visitCatch]  of class "Scanner" in File "Testsfile\src\CodeComplexity\CyclomaticComplexity.java" : 26
+with Complexity of: 127.59108063160195
+with CC of: 1
+with HV of: 53.77443751081735
+with LoC of: 4 with position of 26
+
+[visitDoWhileLoop]  of class "Scanner" in File "Testsfile\src\CodeComplexity\CyclomaticComplexity.java" : 32
+with Complexity of: 127.59108063160195
+with CC of: 1
+with HV of: 53.77443751081735
+with LoC of: 4 with position of 32
+
+[visitForLoop]  of class "Scanner" in File "Testsfile\src\CodeComplexity\CyclomaticComplexity.java" : 38
+with Complexity of: 127.59108063160195
+with CC of: 1
+with HV of: 53.77443751081735
+with LoC of: 4 with position of 38
+
+[visitWhileLoop]  of class "Scanner" in File "Testsfile\src\CodeComplexity\CyclomaticComplexity.java" : 44
+with Complexity of: 127.59108063160195
+with CC of: 1
+with HV of: 53.77443751081735
+with LoC of: 4 with position of 44
+
+[visitCase]  of class "Scanner" in File "Testsfile\src\CodeComplexity\CyclomaticComplexity.java" : 50
+with Complexity of: 127.59108063160195
+with CC of: 1
+with HV of: 53.77443751081735
+with LoC of: 4 with position of 50
+
+[visitIf]  of class "Scanner" in File "Testsfile\src\CodeComplexity\CyclomaticComplexity.java" : 56
+with Complexity of: 127.59108063160195
+with CC of: 1
+with HV of: 53.77443751081735
+with LoC of: 4 with position of 56
+
+[visitEnhancedForLoop]  of class "Scanner" in File "Testsfile\src\CodeComplexity\CyclomaticComplexity.java" : 62
+with Complexity of: 127.59108063160195
+with CC of: 1
+with HV of: 53.77443751081735
+with LoC of: 4 with position of 62
+
+[calculate]  of class "CyclomaticComplexity" in File "Testsfile\src\CodeComplexity\CyclomaticComplexity.java" : 67
+with Complexity of: 125.11653325745357
+with CC of: 1
+with HV of: 43.18506523353572
+with LoC of: 5 with position of 67
+
+[subStringMatcher]  of class "CyclomaticComplexity" in File "Testsfile\src\CodeComplexity\CyclomaticComplexity.java" : 72
+with Complexity of: 100.24118396888767
+with CC of: 3
+with HV of: 191.15673810496133
+with LoC of: 14 with position of 72
+
+[HalstedVolume]  of class "HalstedVolume" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 29
+with Complexity of: 125.52315747130459
+with CC of: 1
+with HV of: 14.0
+with LoC of: 7 with position of 29
+
+[calculate]  of class "HalstedVolume" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 23
+with Complexity of: 119.06626150089909
+with CC of: 1
+with HV of: 138.24238017775622
+with LoC of: 5 with position of 23
+
+[getHalstedVolume]  of class "HalstedVolume" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 29
+with Complexity of: 144.86478113187096
+with CC of: 1
+with HV of: 4.754887502163469
+with LoC of: 3 with position of 29
+
+[visitBinary]  of class "Scanner" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 35
+with Complexity of: 121.18380521791258
+with CC of: 1
+with HV of: 92.0
+with LoC of: 5 with position of 35
+
+[visitIdentifier]  of class "Scanner" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 42
+with Complexity of: 121.18380521791258
+with CC of: 1
+with HV of: 92.0
+with LoC of: 5 with position of 42
+
+[visitLiteral]  of class "Scanner" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 49
+with Complexity of: 105.53835575615514
+with CC of: 2
+with HV of: 152.92539048396907
+with LoC of: 11 with position of 49
+
+[visitUnary]  of class "Scanner" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 62
+with Complexity of: 121.18380521791258
+with CC of: 1
+with HV of: 92.0
+with LoC of: 5 with position of 62
+
+[visitAssignment]  of class "Scanner" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 69
+with Complexity of: 121.18380521791258
+with CC of: 1
+with HV of: 92.0
+with LoC of: 5 with position of 69
+
+[visitModifiers]  of class "Scanner" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 76
+with Complexity of: 114.68283402008805
+with CC of: 1
+with HV of: 112.58797503894243
+with LoC of: 7 with position of 76
+
+[visitVariable]  of class "Scanner" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 85
+with Complexity of: 121.18380521791258
+with CC of: 1
+with HV of: 92.0
+with LoC of: 5 with position of 85
+
+[visitMethodInvocation]  of class "Scanner" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 92
+with Complexity of: 114.12506884045189
+with CC of: 1
+with HV of: 125.33591475173351
+with LoC of: 7 with position of 92
+
+[visitIf]  of class "Scanner" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 101
+with Complexity of: 114.41511015352077
+with CC of: 1
+with HV of: 118.53642239625987
+with LoC of: 7 with position of 101
+
+[visitCase]  of class "Scanner" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 110
+with Complexity of: 121.18380521791258
+with CC of: 1
+with HV of: 92.0
+with LoC of: 5 with position of 110
+
+[visitWhileLoop]  of class "Scanner" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 117
+with Complexity of: 114.41511015352077
+with CC of: 1
+with HV of: 118.53642239625987
+with LoC of: 7 with position of 117
+
+[visitForLoop]  of class "Scanner" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 126
+with Complexity of: 114.41511015352077
+with CC of: 1
+with HV of: 118.53642239625987
+with LoC of: 7 with position of 126
+
+[visitDoWhileLoop]  of class "Scanner" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 135
+with Complexity of: 114.41511015352077
+with CC of: 1
+with HV of: 118.53642239625987
+with LoC of: 7 with position of 135
+
+[visitArrayAccess]  of class "Scanner" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 144
+with Complexity of: 122.29976569653019
+with CC of: 1
+with HV of: 74.23092131656186
+with LoC of: 5 with position of 144
+
+[visitTry]  of class "Scanner" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 151
+with Complexity of: 121.18380521791258
+with CC of: 1
+with HV of: 92.0
+with LoC of: 5 with position of 151
+
+[visitCatch]  of class "Scanner" in File "Testsfile\src\CodeComplexity\HalstedVolume.java" : 158
+with Complexity of: 121.18380521791258
+with CC of: 1
+with HV of: 92.0
+with LoC of: 5 with position of 158
+
+[LinesOfCode]  of class "LinesOfCode" in File "Testsfile\src\CodeComplexity\LinesOfCode.java" : 18
+with Complexity of: 142.15938490684147
+with CC of: 1
+with HV of: 8.0
+with LoC of: 3 with position of 18
+
+[getPosition]  of class "LinesOfCode" in File "Testsfile\src\CodeComplexity\LinesOfCode.java" : 22
+with Complexity of: 144.86478113187096
+with CC of: 1
+with HV of: 4.754887502163469
+with LoC of: 3 with position of 22
+
+[getLines]  of class "LinesOfCode" in File "Testsfile\src\CodeComplexity\LinesOfCode.java" : 26
+with Complexity of: 144.86478113187096
+with CC of: 1
+with HV of: 4.754887502163469
+with LoC of: 3 with position of 26
+
+[calculate]  of class "LinesOfCode" in File "Testsfile\src\CodeComplexity\LinesOfCode.java" : 30
+with Complexity of: 92.20404879967809
+with CC of: 4
+with HV of: 282.3891896920519
+with LoC of: 20 with position of 30
+
+[lineValidation]  of class "LinesOfCode" in File "Testsfile\src\CodeComplexity\LinesOfCode.java" : 54
+with Complexity of: 60.77345741922643
+with CC of: 20
+with HV of: 1039.3650888959082
+with LoC of: 73 with position of 54
+
+[signatureOfMethod]  of class "LinesOfCode" in File "Testsfile\src\CodeComplexity\LinesOfCode.java" : 106
+with Complexity of: 92.63970295352901
+with CC of: 7
+with HV of: 315.78222090468125
+with LoC of: 18 with position of 106
+
+[MaintainablilityIndex]  of class "MaintainablilityIndex" in File "Testsfile\src\CodeComplexity\MaintainablilityIndex.java" : 23
+with Complexity of: 131.51880134567776
+with CC of: 1
+with HV of: 25.26619429851844
+with LoC of: 4 with position of 23
+
+[pathDecision]  of class "MaintainablilityIndex" in File "Testsfile\src\CodeComplexity\MaintainablilityIndex.java" : 28
+with Complexity of: 120.78150597986996
+with CC of: 2
+with HV of: 53.88872502451932
+with LoC of: 6 with position of 28
+
+[runDirectory]  of class "MaintainablilityIndex" in File "Testsfile\src\CodeComplexity\MaintainablilityIndex.java" : 35
+with Complexity of: 112.38950268253546
+with CC of: 2
+with HV of: 110.44611534953322
+with LoC of: 8 with position of 35
+
+[runFile]  of class "MaintainablilityIndex" in File "Testsfile\src\CodeComplexity\MaintainablilityIndex.java" : 44
+with Complexity of: 104.25857472453006
+with CC of: 3
+with HV of: 142.7018117963935
+with LoC of: 12 with position of 44
+
+[methodRegistration]  of class "MaintainablilityIndex" in File "Testsfile\src\CodeComplexity\MaintainablilityIndex.java" : 56
+with Complexity of: 91.35094512726621
+with CC of: 4
+with HV of: 247.25415011250038
+with LoC of: 22 with position of 56
+
+[start]  of class "MaintainablilityIndex" in File "Testsfile\src\CodeComplexity\MaintainablilityIndex.java" : 79
+with Complexity of: 140.99903844000758
+with CC of: 1
+with HV of: 10.0
+with LoC of: 3 with position of 79
+
+[sort]  of class "MaintainablilityIndex" in File "Testsfile\src\CodeComplexity\MaintainablilityIndex.java" : 83
+with Complexity of: 136.79172270480979
+with CC of: 1
+with HV of: 22.458839376460833
+with LoC of: 3 with position of 83
+
+[print]  of class "MaintainablilityIndex" in File "Testsfile\src\CodeComplexity\MaintainablilityIndex.java" : 87
+with Complexity of: 109.53702126797698
+with CC of: 3
+with HV of: 126.71134807876054
+with LoC of: 9 with position of 87
+
+[Methods]  of class "Methods" in File "Testsfile\src\CodeComplexity\Methods.java" : 23
+with Complexity of: 110.28000478468662
+with CC of: 1
+with HV of: 120.0
+with LoC of: 9 with position of 23
+
+[runComplexityCheck]  of class "Methods" in File "Testsfile\src\CodeComplexity\Methods.java" : 33
+with Complexity of: 108.69271587732649
+with CC of: 1
+with HV of: 235.02198590705464
+with LoC of: 8 with position of 33
+
+[getMaintainabilityIndex]  of class "Methods" in File "Testsfile\src\CodeComplexity\Methods.java" : 42
+with Complexity of: 144.86478113187096
+with CC of: 1
+with HV of: 4.754887502163469
+with LoC of: 3 with position of 42
+
+[print]  of class "Methods" in File "Testsfile\src\CodeComplexity\Methods.java" : 46
+with Complexity of: 125.1201346823153
+with CC of: 1
+with HV of: 86.48579046593244
+with LoC of: 4 with position of 46
+
+[debugPrint]  of class "Methods" in File "Testsfile\src\CodeComplexity\Methods.java" : 51
+with Complexity of: 110.6111405636419
+with CC of: 1
+with HV of: 246.34990140857968
+with LoC of: 7 with position of 51
+
+[nameSanitizer]  of class "Methods" in File "Testsfile\src\CodeComplexity\Methods.java" : 58
+with Complexity of: 127.12600113296685
+with CC of: 2
+with HV of: 28.07354922057604
+with LoC of: 5 with position of 58
+
+[astGenerator]  of class "Compiler" in File "Testsfile\src\Compiler\Compiler.java" : 17
+with Complexity of: 109.12630024380954
+with CC of: 1
+with HV of: 216.22022703449025
+with LoC of: 8 with position of 17
+
+[pathValidation]  of class "Utils" in File "Testsfile\src\IOSection\Utils.java" : 14
+with Complexity of: 116.23267845947518
+with CC of: 2
+with HV of: 79.95445336320968
+with LoC of: 7 with position of 14
+
+[reading]  of class "Utils" in File "Testsfile\src\IOSection\Utils.java" : 21
+with Complexity of: 93.01938452200322
+with CC of: 4
+with HV of: 335.2006886638025
+with LoC of: 18 with position of 21
+
+[main]  of class "main" in File "Testsfile\src\main.java" : 10
+with Complexity of: 82.81084008263458
+with CC of: 5
+with HV of: 380.39100017307754
+with LoC of: 32 with position of 10
+
+[printNoSuchFile]  of class "main" in File "Testsfile\src\main.java" : 42
+with Complexity of: 138.71683447649625
+with CC of: 1
+with HV of: 15.509775004326936
+with LoC of: 3 with position of 42
+
+[printMenu]  of class "main" in File "Testsfile\src\main.java" : 48
+with Complexity of: 116.92999892552669
+with CC of: 1
+with HV of: 73.08241808752197
+with LoC of: 7 with position of 48
+
+[printPathMenu]  of class "main" in File "Testsfile\src\main.java" : 55
+with Complexity of: 138.71683447649625
+with CC of: 1
+with HV of: 15.509775004326936
+with LoC of: 3 with position of 55
+
+[runComplexity]  of class "main" in File "Testsfile\src\main.java" : 58
+with Complexity of: 124.37240887052207
+with CC of: 1
+with HV of: 49.82892142331044
+with LoC of: 5 with position of 58
+
