@@ -16,6 +16,8 @@ import java.util.stream.Stream;
 import Compiler.Compiler;
 import com.sun.source.tree.Tree;
 
+import IOSection.Utils;
+
 
 public class MaintainablilityIndex{
 
@@ -25,85 +27,22 @@ public class MaintainablilityIndex{
 
     public MaintainablilityIndex(Path path){
         this.path = path;
-        methods = new ArrayList<>();
     }
 
-    public void pathDecision(Path path){
-        if(Files.isDirectory(path)){
-            runDirectory(path);
-        }else
-            runFile(path);
-    }
 
-    public String runDirectory(Path path){
-        try (Stream<Path> paths = Files.walk(path)){
-            paths.filter(p -> !p.equals(path)).forEach(p -> {
-                System.out.println(p.toString());
-                runFile(p);
-            });
-        } catch (IOException e) {
-            return e.getMessage();
-        }
-        return "Success!";
-    }
-    int startPoint = 0;
-    public String runFile(Path path){
-        if(!Files.isDirectory(path)) {
-            try {
-                Iterable<? extends CompilationUnitTree> ast = Compiler.astGenerator(path);
-                methodRegistration(ast, path);
-                for (int i = startPoint; i < methods.size(); i++) {
-                    methods.get(i).runComplexityCheck();
-                }
-                startPoint = methods.size();
-            } catch (IOException e) {
-                return e.getMessage();
-            }
-            return "Success!";
-        }
-        else return "this path is a directory";
-    }
-    public void methodRegistration(Iterable<? extends CompilationUnitTree> ast,Path path){
-        ast.forEach(Unit->{ // we process each file individualy, so only one Unit here
-            Unit.getTypeDecls().forEach(classTree->{ // extract classTree from Unit
-                if(classTree instanceof ClassTree){
-                    methodsFromInnerClass((ClassTree)classTree,path);
-                }
-            });
-
-        });
-    }
-    public void methodsFromInnerClass(ClassTree classTree,Path path){
-        String className = ((ClassTree) classTree).getSimpleName().toString();
-        for(Tree methodTree:((ClassTree) classTree).getMembers()){  // extract methodTree from classTree
-            if(methodTree instanceof MethodTree){
-                methods.add(new Methods(
-                                path,
-                                className, // class Name
-                                ((MethodTree)methodTree).getName().toString(), //  method Name
-                                (MethodTree) methodTree // tree of this method
-                        )
-                );
-            }
-            if(methodTree instanceof ClassTree){
-                methodsFromInnerClass((ClassTree) methodTree,path); // run recursively if there are innerClasses
-            }
-        }
-    }
 
     public void start(){
-        pathDecision(this.path);
+        Utils.runPath(this.path); // travers the given path
+        this.methods = Utils.getMethods(); // get the methods from all files in the path from Util
+        methods.forEach(Methods::runComplexityCheck);
     }
 
-    public void sort(){
-        methods.sort(Comparator.comparingDouble(Methods::getMaintainabilityIndex));
-    }
 
     public void print(int mode){
         if(mode == 0) { // normal mode
-            System.out.println("the 3 methods with highest complexity:");
-            this.sort();
-            methods.stream().limit(3).forEach(Methods::print);
+            System.out.println("3 methods with highest complexity(Worst Maintainability):");
+            methods.sort(Comparator.comparingDouble(Methods::getMaintainabilityIndex));
+            methods.stream().limit(3).forEach(m-> m.print(1));
         }
         if(mode == 1){ // debug mode
 

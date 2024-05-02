@@ -1,4 +1,5 @@
 import CodeComplexity.MaintainablilityIndex;
+import CodeStyle.CamelCase;
 import IOSection.Utils;
 
 import java.io.BufferedReader;
@@ -8,19 +9,12 @@ import java.nio.file.Path;
 
 public class main {
     public static void main(String[] args) {
-        // deal with user input, could be a path or directory, with other parameters
-        // -help or -h or any other unvalid parameter : print help page
-        // -c check the code complexity with the given path
-        // -s check code style
-
-
         printMenu();
-        String choice = Utils.reading(0);
+        String choice = Utils.reading(3);
 
         if(choice.equals("1")){
             printPathMenu();
-            String pathString = Utils.reading(1);
-            Path path = Utils.pathValidation(pathString);
+            Path path = Utils.readingPath();
             if(path == null)
                 printNoSuchFile();
             else
@@ -28,15 +22,13 @@ public class main {
         }
         else if(choice.equals("2")){
             printPathMenu();
-            String pathString = Utils.reading(1);
-            Path path = Utils.pathValidation(pathString);
+            Path path = Utils.readingPath();
             if(path == null)
                 printNoSuchFile();
-            //runStyle(path0);
-            System.out.println("Functionality not yet implemented");
+            else runStyle(path);
         }
         else{
-            return;
+            return; // to be added with more functionality
         }
     }
     public static void printNoSuchFile(){
@@ -59,5 +51,10 @@ public class main {
         MaintainablilityIndex mi = new MaintainablilityIndex(path);
         mi.start(); // not yet done with sort and information printing
         mi.print(0); // 0 default mode, 1 debug mode, 2 debug mode printing to file
+    }
+
+    public static void runStyle(Path path){
+        CamelCase camelCase = new CamelCase();
+        camelCase.start(path);
     }
 }

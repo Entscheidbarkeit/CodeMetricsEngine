@@ -30,7 +30,7 @@ public class Methods {
         loc = new LinesOfCode();
     }
 
-    public void runComplexityCheck(){
+    public void runCOmplexityCheck(){
         cc.calculate(this.tree);
         loc.calculate(path,name);
         this.position = loc.getPosition();

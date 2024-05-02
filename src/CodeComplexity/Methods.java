@@ -38,16 +38,23 @@ public class Methods {
         loc.calculate(path,tree,name);
         this.position = loc.getPosition();
         hv.calculate(tree);
-        maintainabilityIndex = 171-5.2*log(hv.getHalstedVolume()) - 0.23* cc.getValue() -16.2*log(loc.getLines());
+        maintainabilityIndex = (171-5.2*log(hv.getHalstedVolume()) - 0.23* cc.getValue() -16.2*log(loc.getLines()))/171*100;
     }
 
     public double getMaintainabilityIndex() {
         return maintainabilityIndex;
     }
 
-    public void print(){
-        System.out.println(this.name + " of class \"" + this.className + "\" in File \"" + this.path.toString() + "\" : " +this.position);
-        System.out.println("with Complexity of: "+ this.maintainabilityIndex);
+    public void print(int mode){
+        System.out.println("["+ this.name + "]  of class \"" + this.className + "\" in File \"" + this.path.toString() + "\" : " +this.position);
+        // mode 1 print Complexity Info
+        if(mode == 1) {
+            System.out.println("with Complexity of: " + this.maintainabilityIndex);
+        }
+        // mode 2 print Code Style Info
+        if(mode == 2){
+            System.out.println("Name invalid!");
+        }
     }
 
     public void debugPrint(PrintStream out){
@@ -63,5 +70,9 @@ public class Methods {
         if(this.name.equals("<init>")){
             this.name = this.className;
         }
+    }
+
+    public String getName() {
+        return name;
     }
 }
