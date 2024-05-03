@@ -31,9 +31,9 @@ public class LinesOfCode { // we took the assumption for simplicity that all met
         return lines;
     }
 
-    //for a method specified, we read all lines from its path and count the lines
+    //for a method, we read all lines from its path and count the lines
     // to detect start of a method we use the parameter list, name, return type from its ast
-    // to detect end we use a stack to count pairs of {}. Only when the stack is empty, can we decide the end of the method
+    // to detect end we use a stack to count pairs of {}. Only when the stack is empty, can we decide the end of the method is reached
     public int calculate(Path path, MethodTree methodTree, String name) {
         pt = path;
         mt = methodTree;
@@ -115,9 +115,14 @@ public class LinesOfCode { // we took the assumption for simplicity that all met
             return true;
         else return false;// the method has been processed
     }
-    public boolean signatureOfMethod(String line, MethodTree tree, String name) {
-
+    public boolean signatureOfMethod(String line, MethodTree tree, String name) { // decide if a line contains the signature of a method
+        if(inComment)
+            return false;
         if (line.contains(name)) {
+            if(line.contains("//")){ // the name must not be in a comment
+                if(line.indexOf(name)>line.indexOf("//"))
+                    return false;
+            }
             for(VariableTree param : tree.getParameters()){ // if line contains all the parameter
                 if(!line.contains(param.getType()+" "+param.getName())){
                     return false;
