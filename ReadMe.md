@@ -54,6 +54,8 @@ After performing each task you chose, you will be shown again this menu.
     D:\Testsfile/LinesOfCode.java
     
     6 method(s) detected!
+
+    Following functionalities are available:
     1. run Code Complexity check for given directory or file
     2. run Code Style check for given directory or file
     3. change current path
@@ -72,6 +74,8 @@ After performing each task you chose, you will be shown again this menu.
     D:\Testsfile/LinesOfCode.java
 
     6 method(s) detected!
+
+    Following functionalities are available:
     1. run Code Complexity check for given directory or file
     2. run Code Style check for given directory or file
     3. change current path
@@ -104,6 +108,8 @@ Please make sure your java files are free of compilation errors to gain maximal 
     Compilation error with file: file:///D:/Error/alaram-clock.java
 
     1 method(s) detected!
+
+    Following functionalities are available:
     1. run Code Complexity check for given directory or file
     2. run Code Style check for given directory or file
     3. change current path
@@ -159,8 +165,10 @@ for Lines of Code, it's much easier with knowing all the features of a method to
 I applied a stack for {} to determine if a methods reaches to its end.  
 for naming convention for methods, we can easily gain knowledge of the name of a methods from AST.
 
+
 ## Possible extensions 
 More code metrics can be introduced and implemented in either Package (CodeComplexity, CodeStyle).  
 By modifying the main() method in main.java, we can have a better menu for more functions.   
 The methods are already retrieved in main() and stored in a static Arraylist in Utils for new metrics.
 We can get from each "Methods" from this ArrayList its MethodTree for AST-based analysis or its path for Text-based analysis. 
+
