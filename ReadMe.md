@@ -2,21 +2,18 @@
 
 This application is compiled with **JDK 19**, please make sure your JRE is also 19 or higher.  
 Please make sure your java files are encoded by Unicode. This Application do not support currently other encoding type such as ANSI.  
-You can run this application through **CME.jar** in your terminal.  
+You can run this application through **CME.jar** in your terminal or through the project file in IDE
 
 `java -jar CME.jar`
 
 Then you'll get the menu page of the application.  
 
-    Welcome to Code Metrics Engine
-    Following functionalities are available:  
-    1. run Code Complexity check for given directory or file  
-    2. run Code Style check for given directory or file  
+    Following functionalities are available:
+    1. run Code Complexity check for given directory or file
+    2. run Code Style check for given directory or file
+    3. change current path
     0. exit
 
-
-
-Code Style check is currently only used for small Camelcase in method name.  
 
 you will be led to input of **Path** based on current working directory.  
 the path can either be a java file or a directory.  
@@ -31,12 +28,17 @@ You will be asked to retry when following cases are encountered:
 
 Upon valid Path given, you can choose the functionalities by number.  
 
+You can change the path by input 3, which will rescan the path for all the java file and their methods  
+The menu is implemented to be able to repeat the task and change path through a loop. You can exit by input 0 or just close the terminal.  
+After performing each task you chose, you will be shown again this menu.
+
 ## Example for invalid path
 
     Welcome to Code Metrics Engine
     Following functionalities are available:
     1. run Code Complexity check for given directory or file
     2. run Code Style check for given directory or file
+    3. change current path
     0. exit
     Please give the path:
     D:\empty
@@ -54,6 +56,7 @@ Upon valid Path given, you can choose the functionalities by number.
     6 method(s) detected!
     1. run Code Complexity check for given directory or file
     2. run Code Style check for given directory or file
+    3. change current path
     0. exit
     Please choose the functionality with number:
     1
@@ -71,6 +74,7 @@ Upon valid Path given, you can choose the functionalities by number.
     6 method(s) detected!
     1. run Code Complexity check for given directory or file
     2. run Code Style check for given directory or file
+    3. change current path
     0. exit
     Please choose the functionality with number:
     2
@@ -102,6 +106,7 @@ Please make sure your java files are free of compilation errors to gain maximal 
     1 method(s) detected!
     1. run Code Complexity check for given directory or file
     2. run Code Style check for given directory or file
+    3. change current path
     0. exit
     Please choose the functionality with number:
     1
@@ -113,6 +118,7 @@ Please make sure your java files are free of compilation errors to gain maximal 
 This Application consist of various modules.  
 
 **main.java** is the main entrance of the whole application and in charge of printing information and reading user input.  
+
 
 **CodeComplexity** is the package that implements various key factors for Maintainability Index.  
 
@@ -129,7 +135,8 @@ Methods.java is the abstract representation of methods read from AST, with its n
 During research, I found out multiple Complexity metrics for evaluation, and they tend to be combined for an objective criteria. Simply one metric for example Cyclomatic Complexity can lead to confusion for users, especially when it's not possible to reduce the number of branches.  
 Therefore, I chose Maintainability Index for this application, which is already used by Microsoft for complexity.   
 It is calculated based on following formula:  
-`Maintainability Index = MAX(0,(171 - 5.2 * ln(Halstead Volume) - 0.23 * (Cyclomatic Complexity) - 16.2 * ln(Lines of Code))*100 / 171)`
+`Maintainability Index = MAX(0,(171 - 5.2 * ln(Halstead Volume) - 0.23 * (Cyclomatic Complexity) - 16.2 * ln(Lines of Code))*100 / 171)`  
+I personally find the coefficient for Lines of Code are a little bit high, but still need more evidence to adjust it.
 
 ## Code Style
 I found out it is a much easier task when it comes to naming convention.  
