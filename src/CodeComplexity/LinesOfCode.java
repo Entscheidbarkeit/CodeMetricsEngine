@@ -134,9 +134,7 @@ public class LinesOfCode { // we took the assumption for simplicity that all met
                 else return false;
             }
             if(line.contains("class")){
-                if(line.indexOf("class")>line.indexOf(name))
-                    return true;
-                return false;
+                return line.indexOf("class") > line.indexOf(name);
             }
             return true;
         }
