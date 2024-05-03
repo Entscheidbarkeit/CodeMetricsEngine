@@ -24,7 +24,7 @@ public class Compiler {
         Iterable<? extends CompilationUnitTree> ast =  task.parse();
 
 
-        dia.getDiagnostics().stream().map(info->info.getSource().toUri().toString()).distinct().forEach(info->{ // print files that can't be compiled
+        dia.getDiagnostics().stream().map(info->info.getSource().toUri().toString()).distinct().forEach(info->{ // print files with compilation error
             System.out.println("Compilation error with file: "+ info);
         });
         System.out.println();

@@ -9,54 +9,34 @@ import java.nio.file.Path;
 
 public class main {
     public static void main(String[] args) {
-        printMenu();
-        printPathMenu();
+        Utils.printWelcome();
+        Utils.printMenu();
 
-        Path path = Utils.readingPath(); // path validation and file validation
-        while(true) {
-            int result;
-            result = Utils.runPath(path);
-            if (result == 1) {
-                System.out.println("this file or directory dose not contain any of the java files");
-                path = Utils.readingPath();
-            }
-            else if (result == 2) {
-                System.out.println("an Exception was created during processing files");
-                path = Utils.readingPath();
-            }
-            else {
-                if(Utils.getMethods().size() == 0) {
-                    System.out.println("There are no methods detected, please choose another path");
-                    path = Utils.readingPath();
-                }
-                else break;
-            }
-        }
+        Path path = Utils.choosePath();
         System.out.println(Utils.getMethods().size() + " method(s) detected! ");
 
-
-        String choice = Utils.reading(3); // number input
-        if (choice.equals("1")) {
-            runComplexity(path);
-        } else if (choice.equals("2")) {
-            runStyle(path);
-        } else {
-            return; // to be added with more functionality
+        String choice = Utils.reading(4); // number input
+        while(!choice.equals("0") ) {
+            if (choice.equals("1")) {
+                runComplexity(path);
+                choice = Utils.reading(4);
+            } else if (choice.equals("2")) {
+                runStyle(path);
+                choice = Utils.reading(4);
+            } else if (choice.equals("3")){
+                path = Utils.choosePath();
+                System.out.println(Utils.getMethods().size() + " method(s) detected! ");
+                choice = Utils.reading(4);
+            }else {
+                return; // to be added with more functionality
+            }
         }
+        System.out.println("thank you for using Code Metrics Engine!");
     }
 
 
 
-    public static void printMenu(){
-        System.out.println("Welcome to Code Metrics Engine");
-        System.out.println("Following functionalities are available:");
-        System.out.println("1. run Code Complexity check for given directory or file");
-        System.out.println("2. run Code Style check for given directory or file");
-        System.out.println("0. exit");
-    }
-    public static void printPathMenu(){
-        System.out.println("Please give the path:");
-    }
+
     public static void runComplexity(Path path){
         MaintainablilityIndex mi = new MaintainablilityIndex(path);
         mi.start(); // not yet done with sort and information printing
@@ -67,4 +47,5 @@ public class main {
         CamelCase camelCase = new CamelCase();
         camelCase.start(path);
     }
+
 }
