@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CodeMetricsEngine:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CodeMetricsEngine_jar</output-path>
+    <root id="archive" name="CodeMetricsEngine.jar">
+      <element id="module-output" name="CodeMetricsEngine" />
+    </root>
+  </artifact>
+</component>

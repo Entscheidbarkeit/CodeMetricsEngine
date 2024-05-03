@@ -6,10 +6,20 @@ import com.sun.source.util.TreeScanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/* by this Metrics, following points in program are considered:
+    &&,||,Catch,While,For,If,Case
+ */
+
 public class CyclomaticComplexity {
-    int value = 1;
+    private int value = 1;
 
     public int getValue() {
+        return value;
+    }
+
+    public int calculate(MethodTree methodTree){
+        Scanner scanner = new Scanner();
+        methodTree.accept(scanner,null);
         return value;
     }
 
@@ -63,25 +73,6 @@ public class CyclomaticComplexity {
             value++;
             return super.visitEnhancedForLoop(node, unused);
         }
-    }
-    public int calculate(MethodTree methodTree){
-        Scanner scanner = new Scanner();
-        methodTree.accept(scanner,null);
-        return value;
-    }
-    public int subStringMatcher(String original){
-        int apperance = 0;
-        Pattern pattern = Pattern.compile("&&");
-        Matcher machter = pattern.matcher(original);
-        while(machter.find()){
-            apperance++;
-        }
-        pattern = Pattern.compile("\\|\\|");
-        machter = pattern.matcher(original);
-        while(machter.find()){
-            apperance++;
-        }
-        return apperance;
     }
 
 }

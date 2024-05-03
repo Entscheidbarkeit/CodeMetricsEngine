@@ -4,6 +4,8 @@ import com.sun.source.tree.MethodTree;
 import com.sun.source.tree.VariableTree;
 
 import java.io.IOException;
+import java.nio.charset.MalformedInputException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Stack;
@@ -15,6 +17,8 @@ public class LinesOfCode { // we took the assumption for simplicity that all met
 
     private int totalLines = 0;
     private Stack<Boolean> stack;
+    private MethodTree mt;
+    private Path pt;
     public LinesOfCode(){
         stack = new Stack<>();
     }
@@ -27,11 +31,15 @@ public class LinesOfCode { // we took the assumption for simplicity that all met
         return lines;
     }
 
+    //for a method specified, we read all lines from its path and count the lines
+    // to detect start of a method we use the parameter list, name, return type from its ast
+    // to detect end we use a stack to count pairs of {}. Only when the stack is empty, can we decide the end of the method
     public int calculate(Path path, MethodTree methodTree, String name) {
-
+        pt = path;
+        mt = methodTree;
         try {
-            Files.lines(path).forEach(line->{
-                if(signatureOfMethod(line,methodTree,name)){
+            Files.lines(path, StandardCharsets.UTF_8).forEach(line->{
+                if(signatureOfMethod(line,methodTree,name)){  // the signature found
                     lineValidation(stack,line);
                     lines++;
                     position = totalLines+1;
@@ -42,8 +50,9 @@ public class LinesOfCode { // we took the assumption for simplicity that all met
                 }
                 totalLines++;
             });
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            System.err.println("Error processing file: " + path.toString());
+            System.err.println("Please check the file encoding.");
         }
         return lines;
     }
@@ -91,9 +100,12 @@ public class LinesOfCode { // we took the assumption for simplicity that all met
                 else if (line.charAt(i) == '}') {
                     if (!stack.isEmpty()) {
                         stack.pop();
+                        if(stack.empty())
+                            return true;
                     } else {
                         // Handle mismatched closing brace
                         System.err.println("Error: Mismatched closing brace detected.");
+                        System.err.println("in File: " + pt.toString()+" with name: " + mt.getName());
                         return false;
                     }
                 }
@@ -105,12 +117,12 @@ public class LinesOfCode { // we took the assumption for simplicity that all met
     }
     public boolean signatureOfMethod(String line, MethodTree tree, String name) {
 
-        for(VariableTree param : tree.getParameters()){
-            if(!line.contains(param.getType()+" "+param.getName())){
-                return false;
-            }
-        }
         if (line.contains(name)) {
+            for(VariableTree param : tree.getParameters()){ // if line contains all the parameter
+                if(!line.contains(param.getType()+" "+param.getName())){
+                    return false;
+                }
+            }
             if (tree.getReturnType() != null) {
                 if (line.contains(tree.getReturnType().toString()))
                     return true;

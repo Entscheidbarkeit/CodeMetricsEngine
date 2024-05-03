@@ -1,6 +1,6 @@
 package CodeStyle;
 
-import CodeComplexity.Methods;
+import IOSection.Methods;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -12,36 +12,36 @@ public class CamelCase {
     int countInvalidName;
 
     public void start(Path path){
-        Utils.runPath(path);
         methods = Utils.getMethods();
         runSmallCamelCase();
         print();
     }
-    public void runSmallCamelCase(){
+    private void runSmallCamelCase(){
         methods.forEach(m->{
             if(!checkSmallCamel(m.getName())) {
+                m.calculatePosition();
                 m.nameSanitizer();
                 m.print(2);
                 countInvalidName++;
             }
         });
     }
-    public boolean checkSmallCamel(String name) {
+    private boolean checkSmallCamel(String name) {
         if (name.length() == 0)
             return false;
         if (Character.isUpperCase(name.charAt(0))) {
             return false;
         }
-        boolean upperdetected = false;
+        boolean upperDetected = false;
         for(int i = 0; i< name.length(); i++){
-            if(upperdetected){
+            if(upperDetected){ // if an Uppercase appeared, the next must be lowercase
                 if(Character.isUpperCase(name.charAt(i))){
                    return false;
                 }
-                upperdetected = false;
+                upperDetected = false;
             }
             if(Character.isUpperCase(name.charAt(i))) {
-                upperdetected = true;
+                upperDetected = true;
             }
         }
         return true;

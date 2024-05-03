@@ -10,36 +10,46 @@ import java.nio.file.Path;
 public class main {
     public static void main(String[] args) {
         printMenu();
-        String choice = Utils.reading(3);
+        printPathMenu();
 
-        if(choice.equals("1")){
-            printPathMenu();
-            Path path = Utils.readingPath();
-            if(path == null)
-                printNoSuchFile();
-            else
-                runComplexity(path);
+        Path path = Utils.readingPath(); // path validation and file validation
+        while(true) {
+            int result;
+            result = Utils.runPath(path);
+            if (result == 1) {
+                System.out.println("this file or directory dose not contain any of the java files");
+                path = Utils.readingPath();
+            }
+            else if (result == 2) {
+                System.out.println("an Exception was created during processing files");
+                path = Utils.readingPath();
+            }
+            else {
+                if(Utils.getMethods().size() == 0) {
+                    System.out.println("There are no methods detected, please choose another path");
+                    path = Utils.readingPath();
+                }
+                else break;
+            }
         }
-        else if(choice.equals("2")){
-            printPathMenu();
-            Path path = Utils.readingPath();
-            if(path == null)
-                printNoSuchFile();
-            else runStyle(path);
-        }
-        else{
+        System.out.println(Utils.getMethods().size() + " method(s) detected! ");
+
+
+        String choice = Utils.reading(3); // number input
+        if (choice.equals("1")) {
+            runComplexity(path);
+        } else if (choice.equals("2")) {
+            runStyle(path);
+        } else {
             return; // to be added with more functionality
         }
-    }
-    public static void printNoSuchFile(){
-        System.out.println("the designated path do not exist! Please retry");
     }
 
 
 
     public static void printMenu(){
         System.out.println("Welcome to Code Metrics Engine");
-        System.out.println("Please choose the functionality with number:");
+        System.out.println("Following functionalities are available:");
         System.out.println("1. run Code Complexity check for given directory or file");
         System.out.println("2. run Code Style check for given directory or file");
         System.out.println("0. exit");

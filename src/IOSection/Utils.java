@@ -1,6 +1,5 @@
 package IOSection;
 
-import CodeComplexity.Methods;
 import com.sun.source.tree.CompilationUnitTree;
 
 import java.io.BufferedReader;
@@ -18,8 +17,10 @@ import Compiler.Compiler;
 
 public class Utils {
 
-    private static ArrayList<Methods> methods = new ArrayList<>();
-    public static boolean pathValidation(String path){
+    private static ArrayList<Methods> methods = new ArrayList<>(); // this is the methods list for all functionalities
+
+
+    public static boolean pathValidation(String path){ // validate the given path
         try{
         Path pathO = Paths.get(path);
         if(Files.exists(pathO))
@@ -31,6 +32,10 @@ public class Utils {
         }
     }
     public static String reading (int max){ // reading with validation of numbers in range [0,max]
+        System.out.println("1. run Code Complexity check for given directory or file");
+        System.out.println("2. run Code Style check for given directory or file");
+        System.out.println("0. exit");
+        System.out.println("Please choose the functionality with number:");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             try {
                 String input = reader.readLine();
@@ -47,7 +52,7 @@ public class Utils {
                 return reading(max);
             }
     }
-    public static Path readingPath(){
+    public static Path readingPath(){ // repeat input procedure until valid path is given
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
             System.out.print(System.getProperty("user.dir")+"\\");
@@ -62,18 +67,21 @@ public class Utils {
             return readingPath();
         }
     }
-    public static void runPath(Path path){
-        methods = new ArrayList<>(); // upon each given Path, the methods will be reregistered from all files
+    public static int runPath(Path path){ // decided if a path is a directory or file , the Arraylist of Methods will be initialized here
+        methods = new ArrayList<>();
         if(Files.isDirectory(path)){
-            runDirectory(path);
+            return runDirectory(path);
         }else
-            runFile(path);
+            return runFile(path);
     }
 
-    public static String runDirectory(Path path){
+    private static int runDirectory(Path path){
         try (Stream<Path> paths = Files.walk(path)){
             System.out.println("processing file...");
             List<Path> pathList = paths.filter(p -> !Files.isDirectory(p)&&p.toString().endsWith(".java")).collect(Collectors.toList());
+            if(pathList.isEmpty()){
+                return 1; // No java files
+            }
             pathList.forEach(p -> {
                 System.out.println(p);
             });
@@ -81,21 +89,20 @@ public class Utils {
             Iterable<? extends CompilationUnitTree> ast = Compiler.astGenerator(pathList);
             Compiler.methodRegistration(ast,methods);
         } catch (IOException e) {
-            return e.getMessage();
+            return 2; // Exception
         }
-        return "Success!";
+        return 0; // successful
     }
-    public static String runFile(Path path){
-        if(!Files.isDirectory(path)) {
+    private static int runFile(Path path){
+            if(!path.toString().endsWith(".java"))
+                return 1;
             try {
                 Iterable<? extends CompilationUnitTree> ast = Compiler.astGenerator(Collections.singletonList(path));
                 Compiler.methodRegistration(ast, methods);
             } catch (IOException e) {
-                return e.getMessage();
+                return 2; // Exception
             }
-            return "Success!";
-        }
-        else return "this path is a directory";
+            return 0;
     }
 
     public static ArrayList<Methods> getMethods() {

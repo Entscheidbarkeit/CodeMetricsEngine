@@ -1,5 +1,8 @@
-package CodeComplexity;
+package IOSection;
 
+import CodeComplexity.CyclomaticComplexity;
+import CodeComplexity.HalstedVolume;
+import CodeComplexity.LinesOfCode;
 import com.sun.source.tree.MethodTree;
 
 import java.io.*;
@@ -9,18 +12,18 @@ import java.nio.file.Path;
 import static java.lang.Math.log;
 
 public class Methods {
-    Path path;
+    private Path path;
 
-    String className;
-    String name;
-    int position;
+    private String className;
+    private String name;
+    private int position;
 
-    double maintainabilityIndex;
-    CyclomaticComplexity cc;
-    HalstedVolume hv;
-    LinesOfCode loc;
+    private double maintainabilityIndex;
+    private CyclomaticComplexity cc;
+    private HalstedVolume hv;
+    private LinesOfCode loc;
 
-    MethodTree tree;
+    private MethodTree tree;
 
     public Methods(Path path,String className,String name,MethodTree methodTree){
         this.path = path;
@@ -57,7 +60,7 @@ public class Methods {
         }
     }
 
-    public void debugPrint(PrintStream out){
+    public void debugPrint(PrintStream out){ // print all the details of code metrics
         System.setOut(out);
         System.out.println("["+ this.name + "]  of class \"" + this.className + "\" in File \"" + this.path.toString() + "\" : " +this.position);
         System.out.println("with Complexity of: "+ this.maintainabilityIndex);
@@ -66,7 +69,7 @@ public class Methods {
         System.out.println("with LoC of: " + this.loc.getLines()+ " with position of " + this.loc.getPosition());
         System.out.println();
     }
-    public void nameSanitizer(){
+    public void nameSanitizer(){ // replace the name of Constructor
         if(this.name.equals("<init>")){
             this.name = this.className;
         }
@@ -74,5 +77,10 @@ public class Methods {
 
     public String getName() {
         return name;
+    }
+
+    public void calculatePosition(){ // for other functionality that needs the position of methods in file
+        loc.calculate(path,tree,name);
+        this.position = loc.getPosition();
     }
 }

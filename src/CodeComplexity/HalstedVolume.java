@@ -7,12 +7,15 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import static java.lang.Math.log;
-
+/*
+operator: arithmetical operator, return, if, (), logical operator, switch, case, assignment operator, modifiers
+operands: Literals, Identifiers, Method Invocation
+ */
 public class HalstedVolume {
-    HashSet<String> oprator; // the length is the distinct number, the sum of all integer is the total number
-    int opratorCount = 0;
-    HashSet<String> oprands;
-    int oprandCount = 0;
+    private HashSet<String> oprator; // the length is the distinct number of oprator
+    private HashSet<String> oprands;
+    private int opratorCount = 0;
+    private int oprandCount = 0;
 
     double halstedVolume;
 

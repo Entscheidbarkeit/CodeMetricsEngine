@@ -18,7 +18,7 @@ public class LinesOfCode { // we took the assumption for simplicity that all met
         stack = new Stack<>();
     }
 
-    public int getPosition() {
+    public int GetPosition() {
         return position;
     }
 
@@ -48,7 +48,7 @@ public class LinesOfCode { // we took the assumption for simplicity that all met
     }
     private boolean inString = false; // determine if we are inside a String
     private boolean inComment = false;
-    public boolean lineValidation(Stack<Boolean> stack, String line){ // run this method to check the pair of {},which helps to determine the body of methods
+    public boolean lineVAlidation(Stack<Boolean> stack, String line){ // run this method to check the pair of {},which helps to determine the body of methods
 
         int indexOfComments = line.length();
         if(line.contains("//")){
@@ -90,7 +90,7 @@ public class LinesOfCode { // we took the assumption for simplicity that all met
             return true;
         else return false;// the method has been processed
     }
-    public boolean signatureOfMethod(String line, MethodTree tree, String name) {
+    public boolean signatureOfMEthod(String line, MethodTree tree, String name) {
         if (line.contains("(" + tree.getParameters().toString() + ")") && line.contains(name)) {
             if (tree.getReturnType() != null) {
                 if (line.contains(tree.getReturnType().toString()))
